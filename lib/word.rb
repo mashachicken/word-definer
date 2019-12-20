@@ -1,23 +1,22 @@
 class Word
-  @@words = []
+  @@words = {}
   @@total_rows = 0
-  attr_accessor(:definition)
+ attr_accessor :word, :id, :definitions
 
   def initialize(word, id)
-    definition = []
+    @definitions = []
     @id = id || @@total_rows += 1
-    @definition = definition
   end
   def save
     @@words[self.id] = Word.new(self.word, self.id)
   end
   def get_defined(definition)
-    @@words.push(definition)
+    @definitions.push(definition)
   end
   def self.all()
     @@words
   end
   def self.clear
-    @@words = []
+    @@words = {}
   end
 end
