@@ -19,5 +19,5 @@ end
 get('/words/:id') do
   word_search = Word.find(params[:word])
   @definitions = word_search.definitions
-  erb(:definition)
+  erb(:definitions)
 end
