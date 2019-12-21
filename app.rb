@@ -10,14 +10,14 @@ get('/words') do
 end
 
 post('/words') do
-  user_word = Word.new(params["word"], nil)
-  user_word.get_defined(params["definition"])
+  user_word = Word.new(params[:wordInput], nil)
+  user_word.get_defined(params[:definitionInput])
   user_word.save
   @words = Word.all()
   erb(:word)
 end
-# get('/words/:word') do
-#   word_object = Word.find(params[:word])
-#   @definitions = word_object.definitions
-#   erb(:definition)
-# end
+get('/words/:id') do
+  word_search = Word.find(params[:word])
+  @definitions = word_search.definitions
+  erb(:definition)
+end

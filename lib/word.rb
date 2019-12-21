@@ -19,4 +19,12 @@ class Word
   def self.clear
     @@words = {}
   end
+  def self.find (string)
+    string = string
+    @@words.each do |word|
+      if string == user_word.word
+        return word
+      end
+    end
+  end
 end
