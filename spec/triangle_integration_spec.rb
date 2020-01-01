@@ -9,21 +9,24 @@ describe '#Word' do
     Word.clear()
   end
 
-
-  describe('.all') do
-    it("returns an empty array when there are no words") do
-      expect(Word.all).to(eq([]))
-    end
-  end
-
   describe('Word') do
-    describe('#save_word') do
-      it('saves a word to an array') do
+    describe('#save') do
+      it('saves a word') do
         Word.clear
-        word1 = Word.new("happy")
-        word1.save_word
+        word1 = Word.new("happy", nil)
+        word1.save()
         expect(Word.all).to(eq([word1]))
       end
     end
   end
+  describe('.clear') do
+   it("clears all words") do
+     word = Word.new("apple", nil)
+     word.save()
+     word2 = Word.new("animals", nil)
+     word2.save()
+     Word.clear()
+     expect(Word.all).to(eq([]))
+   end
+ end
 end
