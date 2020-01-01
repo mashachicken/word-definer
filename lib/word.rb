@@ -1,7 +1,7 @@
 class Word
   @@words = {}
   @@total_rows = 0
- attr_accessor :word, :id, :definitions
+  attr_accessor :word, :id, :definitions
 
   def initialize(word, id)
     @definitions = []
@@ -14,20 +14,15 @@ class Word
     @@words[self.id] = Word.new(self.word, self.id)
   end
   def ==(word_to_compare)
-   self.word() == word_to_compare.word()
- end
+    self.word() == word_to_compare.word()
+  end
   def get_defined(definition)
     @definitions.push(definition)
   end
   def self.clear
     @@words = {}
   end
-  def self.find (string)
-    string = string
-    @@words.each do |word|
-      if string == user_word.word
-        return word
-      end
-    end
+  def self.find (id)
+    @@words[id]
   end
 end
