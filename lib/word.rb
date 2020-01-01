@@ -4,6 +4,7 @@ class Word
   attr_accessor :word, :id, :definitions
 
   def initialize(word, id)
+    @word = word
     @definitions = []
     @id = id || @@total_rows += 1
   end
@@ -25,4 +26,7 @@ class Word
   def self.find (id)
     @@words[id]
   end
+  def update(new_word)
+  @word = new_word
+end
 end
