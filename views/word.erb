@@ -1,17 +1,12 @@
 
-<h3>Enter any words you wish to learn and its definitions</h3>
-<form action="/words" method="post">
-<div class="form-group">
-  <label for="wordInput">Word</label>
-  <input id="wordInput" name="wordInput" class="form-control" type="text"> <br>
-  <label for="definitionInput">Definition</label>
-  <input id="definitionInput" name="definitionInput" class="form-control" type="text">
-</div>
-<button type="submit" class="btn btn-primary">Add word!</button>
-</form><br>
 
-<h3>Click on a word to see it's definition!</h3>
+<% if @words.any? %>
+<% (@words.values_at).each do |word| %>
+<li><%= word.name %></li>
+<% end %>
+</ul>
+<% else %>
+<p>There are currently no words to display.</p>
+<% end %>
 
-<% (@words.values).each do |word| %>
-<h4><a href="/words/<%= user_word.id %>"> <%= user_word.word %> </h4>
-<%end%>
+<a href="/words/new">Add a new word</a>
