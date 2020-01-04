@@ -8,5 +8,9 @@
 
   <button type="submit">Update</button>
 </form>
+<form action="/words/<%= @word.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
 
+  <br><button type="submit">Delete <%= @word.word %> </button>
+</form>
 <p><a href="/words">Return to words list</a></p>

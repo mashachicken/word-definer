@@ -16,21 +16,15 @@ get('/words/new') do
   erb(:new_word)
 end
 post('/words') do
-  user_word = Word.new(params[:wordInput], nil)
-  user_word.get_defined(params[:definitionInput])
-  user_word.save
+  @word = Word.new(params[:wordInput], nil, params[:definitionInput])
+  @word.save
   @words = Word.all()
   erb(:words)
 end
 
 get('/words/:id') do
   @word = Word.find(params[:id].to_i())
-  # @definitions = word_search.definitions
   erb(:edit)
-end
-get('/words/:id/edit') do
-  @word = Word.find(params[:id].to_i())
-  erb(:edit_word)
 end
 get('/words/:id/edit') do
   @word = Word.find(params[:id].to_i())
@@ -39,6 +33,12 @@ end
 patch('/words/:id') do
   @word = Word.find(params[:id].to_i())
   @word.update(params[:updated_word])
+  @words = Word.all
+  erb(:words)
+end
+delete('/words/:id') do
+  @word = Word.find(params[:id].to_i())
+  @word.delete()
   @words = Word.all
   erb(:words)
 end
