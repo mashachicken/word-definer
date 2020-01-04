@@ -1,8 +1,8 @@
 
-
 <% if @words.any? %>
-<% (@words.values_at).each do |word| %>
-<li><%= word.name %></li>
+<ul>
+<% @words.each do |word| %>
+<li><a href="/albums/<%= word.id %>"><%= word.word %></a>/li>
 <% end %>
 </ul>
 <% else %>

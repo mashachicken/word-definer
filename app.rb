@@ -23,8 +23,8 @@ post('/words') do
   erb(:word)
 end
 
-# get('/words/:id') do
-#   word_search = Word.find(params[:word])
-#   @definitions = word_search.definitions
-#   erb(:definitions)
-# end
+get('/words/:id') do
+  @word = Word.find(params[:id].to_i())
+  # @definitions = word_search.definitions
+  erb(:edit)
+end
