@@ -1,4 +1,4 @@
-<h1>Update a definition of <%= @word.word() %></h1>
+<h1>Update a definition of <%= @word.word() %></h1> <br><br>
 
 <form action="/words/<%= @word.id() %>" method="post">
   <input name="_method" type="hidden" value="patch">
@@ -6,11 +6,17 @@
   <label for="updated_def">New Definition:</label>
   <input id="updated_def" name="updated_def" type="text">
 
-  <button type="submit">Update</button>
+
+  <button type="submit" id="but">Update</button>
+</form>
+<form action="/words/<%= @word.id() %>/delete" method="post">
+  <input name="_method" type="hidden" value="deleteDef">
+
+  <br><button type="submit" id="but">Delete a Definition </button>
 </form>
 <form action="/words/<%= @word.id() %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
-  <br><button type="submit">Delete <%= @word.word %> </button>
-</form>
+  <br><button type="submit" id="but">Delete <%= @word.word %> </button>
+</form><br>
 <p><a href="/words">Return to words list</a></p>

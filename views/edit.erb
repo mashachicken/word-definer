@@ -1,4 +1,6 @@
-<h4><%= @word.word %></h4>
-<h4>Your Definition: <%= @word.definitions %></h4>
+
+
+<h3><%= @word.word %></h3>
+<p class="word"> <%= @word.definitions %><p> <br>
 <p><a href="/words/<%= @word.id %>/edit">Edit word</a></p>
 <a href="/words">Return to words list</a>
