@@ -1,10 +1,10 @@
-<h1>Update <%= @word.word() %></h1>
+<h1>Update a definition of <%= @word.word() %></h1>
 
 <form action="/words/<%= @word.id() %>" method="post">
   <input name="_method" type="hidden" value="patch">
 
-  <label for="updated_word">Rename word</label>
-  <input id="updated_word" name="updated_word" type="text">
+  <label for="updated_def">New Definition:</label>
+  <input id="updated_def" name="updated_def" type="text">
 
   <button type="submit">Update</button>
 </form>

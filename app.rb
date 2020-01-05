@@ -32,7 +32,7 @@ get('/words/:id/edit') do
 end
 patch('/words/:id') do
   @word = Word.find(params[:id].to_i())
-  @word.update(params[:updated_word])
+  @word.update(params[:updated_def])
   @words = Word.all
   erb(:words)
 end

@@ -23,8 +23,8 @@ class Word
   def self.find (id)
     @@words[id]
   end
-  def update(new_word)
-    @word = new_word
+  def update(new_def)
+    @definitions = new_def
   end
   def delete
     @@words.delete(self.id)
