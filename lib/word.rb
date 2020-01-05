@@ -29,7 +29,7 @@ class Word
   def delete
     @@words.delete(self.id)
   end
-  def deleteDef
-    @defintions = nil
+  def deleteDef(empty)
+    @defintions = empty
   end
 end

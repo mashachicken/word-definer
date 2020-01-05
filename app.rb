@@ -36,15 +36,15 @@ patch('/words/:id') do
   @words = Word.all
   erb(:words)
 end
-delete('/words/:id') do
+delete('/words/:id/delete') do
   @word = Word.find(params[:id].to_i())
-  @word.delete()
+  @word.deleteDef(" ")
   @words = Word.all
   erb(:words)
 end
-delete('/words/:id/delete') do
+delete('/words/:id') do
   @word = Word.find(params[:id].to_i())
-  @word.deleteDef()
+  @word.delete()
   @words = Word.all
   erb(:words)
 end

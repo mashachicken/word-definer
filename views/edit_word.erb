@@ -6,11 +6,10 @@
   <label for="updated_def">New Definition:</label>
   <input id="updated_def" name="updated_def" type="text">
 
-
   <button type="submit" id="but">Update</button>
 </form>
 <form action="/words/<%= @word.id() %>/delete" method="post">
-  <input name="_method" type="hidden" value="deleteDef">
+  <input name="_method" type="hidden" value="delete">
 
   <br><button type="submit" id="but">Delete a Definition </button>
 </form>
