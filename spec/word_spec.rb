@@ -46,8 +46,9 @@ describe('#deleteDef') do
   it("deletes a definition") do
     word = Word.new("anxiety", nil, "a feeling of worriness")
     word.save()
-    word.deleteDef(' ')
-    expect(word.definitions).to(eq(' '))
+    word.deleteDef(" ")
+
+    expect(word.definitions).to(eq(" "))
   end
 end
 end

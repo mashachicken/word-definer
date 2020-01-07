@@ -36,7 +36,7 @@ patch('/words/:id') do
   @words = Word.all
   erb(:words)
 end
-delete('/words/:id/delete') do
+patch('/words/:id') do
   @word = Word.find(params[:id].to_i())
   @word.deleteDef(" ")
   @words = Word.all
