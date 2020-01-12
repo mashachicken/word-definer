@@ -16,38 +16,48 @@ describe '#Word' do
     end
   end
   describe('.clear') do
-   it("clears all words") do
-     word = Word.new("apple", nil, "fruit")
-     word.save()
-     word2 = Word.new("animals", nil, "best friends")
-     word2.save()
-     Word.clear()
-     expect(Word.all).to(eq([]))
-   end
- end
- describe('.find') do
-  it("finds a word by id") do
-    word = Word.new("earthquake", nil, "shaking of earth surface")
-    word.save()
-    word2 = Word.new("lightning", nil, "the flashing of light" )
-    word2.save()
-    expect(Word.find(word.id)).to(eq(word))
+    it("clears all words") do
+      word = Word.new("apple", nil, "fruit")
+      word.save()
+      word2 = Word.new("animals", nil, "best friends")
+      word2.save()
+      Word.clear()
+      expect(Word.all).to(eq([]))
+    end
   end
-end
-describe('#update') do
-  it("updates a definition") do
-    word = Word.new("breadsticks", nil, "food")
-    word.save()
-    word.update("food nom nom")
-    expect(word.definitions).to(eq("food nom nom"))
+  describe('.find') do
+    it("finds a word by id") do
+      word = Word.new("earthquake", nil, "shaking of earth surface")
+      word.save()
+      word2 = Word.new("lightning", nil, "the flashing of light" )
+      word2.save()
+      expect(Word.find(word.id)).to(eq(word))
+    end
   end
-end
-describe('#delete_def') do
-  it("deletes a definition") do
-    word = Word.new("anxiety", nil, "a feeling of worriness")
-    word.save()
-    word.delete_def
-    expect(word.definitions).to(eq(nil))
+  describe('#update') do
+    it("updates a definition") do
+      word = Word.new("breadsticks", nil, "food")
+      word.save()
+      word.update("food nom nom")
+      expect(word.definitions).to(eq("food nom nom"))
+    end
   end
-end
+  describe('#delete') do
+    it("deletes a word by id") do
+      word = Word.new("Sleep", nil, "What we all need")
+      word.save()
+      word2 = Word.new("Insomnia", nil, "What prevents us from getting sleep")
+      word2.save()
+      word.delete()
+      expect(Word.all).to(eq([word2]))
+    end
+  end
+  describe('#delete_def') do
+    it("deletes a definition") do
+      word = Word.new("anxiety", nil, "a feeling of worriness")
+      word.save()
+      word.delete_def
+      expect(word.definitions).to(eq(nil))
+    end
+  end
 end
