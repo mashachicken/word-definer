@@ -16,7 +16,7 @@ get('/words/new') do
   erb(:new_word)
 end
 post('/words') do
-  @word = Word.new(params[:wordInput], nil, params[:definitionInput])
+  @word = Word.new(params[:word_input], nil, params[:definition_input])
   @word.save
   @words = Word.all()
   erb(:words)
@@ -38,7 +38,7 @@ patch('/words/:id') do
 end
 patch('/words/:id') do
   @word = Word.find(params[:id].to_i())
-  @word.deleteDef(" ")
+  @word.delete_def(" ")
   @words = Word.all
   erb(:words)
 end

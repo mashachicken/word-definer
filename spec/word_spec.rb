@@ -42,13 +42,12 @@ describe('#update') do
     expect(word.definitions).to(eq("food nom nom"))
   end
 end
-describe('#deleteDef') do
+describe('#delete_def') do
   it("deletes a definition") do
     word = Word.new("anxiety", nil, "a feeling of worriness")
     word.save()
-    word.deleteDef(" ")
-
-    expect(word.definitions).to(eq(" "))
+    word.delete_def
+    expect(word.definitions).to(eq(nil))
   end
 end
 end
