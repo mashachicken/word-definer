@@ -10,23 +10,20 @@ describe '#Word' do
       expect(Word.all).to(eq([]))
     end
   end
-  describe('Word') do
-    describe('#save') do
-      it('saves a word') do
-        Word.clear
-        word1 = Word.new("happy", nil, "a good feeling")
-        word1.save()
-        expect(Word.all).to(eq([word1]))
-      end
-    end
-  end
   describe('#save') do
     it("saves an word") do
-      word = Word.new("love", nil, "another good feeling")
+      word = Word.new("happy", nil, "a good feeling")
       word.save()
       word2 = Word.new("daydreaming", nil, "fantasizing and imagining things while awake")
       word2.save()
       expect(Word.all).to(eq([word, word2]))
+    end
+  end
+  describe('#==') do
+    it("is the same word if it has the same attributes as another word") do
+      word = Word.new("embracement", nil, "an act of accepting or hugging someone")
+      word2 = Word.new("embracement", nil, "an act of accepting or hugging someone")
+      expect(word).to(eq(word2))
     end
   end
   describe('.clear') do
